@@ -9,7 +9,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  function repeater(str, options) {
   let adding = '';
   if (options.addition !== undefined && options.additionRepeatTimes !== undefined&& options.additionSeparator !== undefined) {
-    //console.log('three parametrs');
+    
+    //console.log('three parametrs!');
     let addMass = [];
     for (let i = 1; i <= options.additionRepeatTimes; i++){
       addMass.push(options.addition);

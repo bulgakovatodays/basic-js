@@ -1,31 +1,45 @@
+/* Left:
+removeLinks works correctly;
+*/
+
 const { NotImplementedError } = require('../extensions/index.js');
 
-/**
- * Implement chainMaker object according to task description
- * 
- */
 const chainMaker = {
+  massiv: [],
+
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    console.log(this.massiv.length);
+    return this.massiv.length;
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  addLink(value) {
+    value = String(value);
+    this.massiv.push(value);
+    return this;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  removeLink(position) {
+    if (isNaN(position) || !Number.isInteger(position) || position <= 1 || position > this.massiv.length){
+      this.massiv = [];
+      throw new Error("You can't remove incorrect link!");
+    } else {
+      this.massiv.splice((position-1),1);
+      return this;
+    }
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    this.massiv.reverse();
+    return this;
   },
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let string = '( ' + this.massiv.join(' )~~( ') + ' )'; //   
+    console.log(this.string);
+    this.massiv = [];
+    return string;
   }
 };
+
+
+
+
 
 module.exports = {
   chainMaker
